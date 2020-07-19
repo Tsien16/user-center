@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-@MapperScan("com.tsien")
+@MapperScan("com.tsien.usercenter.dao")
 public class UserCenterApplication {
 
     public static void main(String[] args) {

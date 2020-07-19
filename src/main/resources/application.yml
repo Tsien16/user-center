@@ -8,7 +8,7 @@ spring:
     nacos:
       discovery:
         server-addr: 81.68.78.224:8848
-        cluster-name: BJ
+#        cluster-name: BJ
   application:
     name: user-center
 
