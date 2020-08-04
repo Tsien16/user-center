@@ -1,10 +1,7 @@
 package com.tsien.usercenter.service.user;
 
-import com.tsien.usercenter.dao.user.UserMapper;
 import com.tsien.usercenter.domain.model.user.User;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,10 +12,7 @@ import javax.annotation.Resource;
  */
 
 @Service
-public class UserService {
-
-    @Resource
-    private UserMapper userMapper;
+public interface UserService {
 
     /**
      * 根据用户ID查询User
@@ -26,7 +20,5 @@ public class UserService {
      * @param id userId
      * @return User
      */
-    public User findById(Integer id) {
-        return userMapper.selectByPrimaryKey(id);
-    }
+    User findById(Integer id);
 }
