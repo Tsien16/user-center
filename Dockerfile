@@ -11,7 +11,7 @@ ADD /target/user-center-0.0.1-SNAPSHOT.jar /app.jar
 EXPOSE 8083
 
 # 设置上海时区
-RUN echo "Asia/shanghai" > /etc/timezone
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 配置容器启动后执行的命令
 ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","-Dserver.port=8083","app.jar"]
