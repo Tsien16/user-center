@@ -10,7 +10,15 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-#       cluster-name: BJ
+        #       cluster-name: BJ
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+
+logging:
+  level:
+    com.tsien: debug
 
 server:
   tomcat:
