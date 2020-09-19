@@ -14,6 +14,11 @@ spring:
       rocketmq:
         binder:
           name-server: tsien16.com:9876
+      bindings:
+        input:
+          destination: add-bonus
+          # 如果不设置，应用启动不了，其它mq可以不设置
+          group: add-bonus
 
 logging:
   level:

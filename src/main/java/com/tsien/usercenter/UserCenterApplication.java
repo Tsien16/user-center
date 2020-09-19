@@ -1,8 +1,11 @@
 package com.tsien.usercenter;
 
+import com.tsien.usercenter.rocketmq.MySink;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.tsien.usercenter.dao")
+@EnableBinding({Sink.class, MySink.class})
 public class UserCenterApplication {
 
     public static void main(String[] args) {

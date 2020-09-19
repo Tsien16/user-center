@@ -15,6 +15,14 @@ spring:
       rocketmq:
         binder:
           name-server: localhost:9876
+      bindings:
+        input:
+          destination: add-bonus
+          # 如果不设置，应用启动不了，其它mq可以不设置
+          group: add-bonus
+        my-input:
+          destination: stream-my-topic
+          group: stream-my-topic
 
 logging:
   level:

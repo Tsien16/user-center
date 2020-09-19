@@ -1,5 +1,6 @@
 package com.tsien.usercenter.service.user;
 
+import com.tsien.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.tsien.usercenter.domain.model.user.User;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +22,11 @@ public interface UserService {
      * @return User
      */
     User findById(Integer id);
+
+    /**
+     * 加积分
+     *
+     * @param message message
+     */
+    void addBonus(UserAddBonusMsgDTO message);
 }
