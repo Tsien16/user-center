@@ -20,6 +20,11 @@ spring:
           # 如果不设置，应用启动不了，其它mq可以不设置
           group: add-bonus
 
+jwt:
+  secret: aaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeee
+  # 有效期，单位秒，默认2周
+  expire-time-in-second: 1209600
+
 logging:
   level:
     com.tsien: debug

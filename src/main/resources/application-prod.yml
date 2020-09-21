@@ -24,6 +24,11 @@ spring:
           destination: stream-my-topic
           group: stream-my-topic
 
+jwt:
+  secret: aaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeeeaaabbbcccdddeee
+  # 有效期，单位秒，默认2周
+  expire-time-in-second: 1209600
+
 logging:
   level:
     com.tsien: debug
