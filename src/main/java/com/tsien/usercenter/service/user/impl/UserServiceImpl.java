@@ -3,6 +3,7 @@ package com.tsien.usercenter.service.user.impl;
 import com.tsien.usercenter.dao.user.BonusEventLogMapper;
 import com.tsien.usercenter.dao.user.UserMapper;
 import com.tsien.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
+import com.tsien.usercenter.domain.dto.user.UserLoginDTO;
 import com.tsien.usercenter.domain.model.user.BonusEventLog;
 import com.tsien.usercenter.domain.model.user.User;
 import com.tsien.usercenter.service.user.UserService;
@@ -59,5 +60,34 @@ public class UserServiceImpl implements UserService {
                 .createTime(new Date())
                 .description("投稿加积分")
                 .build());
+    }
+
+    /**
+     * 用户登录
+     *
+     * @param loginDTO loginDTO
+     * @param openId   openId
+     * @return user
+     */
+    @Override
+    public User login(UserLoginDTO loginDTO, String openId) {
+        User user = userMapper.selectOne(User.builder().wxId(openId).build());
+
+        if (user == null) {
+            User userToSave = User.builder()
+                    .wxId(openId)
+                    .bonus(300)
+                    .wxNickname(loginDTO.getWxNickname())
+                    .avatarUrl(loginDTO.getAvatarUrl())
+                    .roles("user")
+                    .createTime(new Date())
+                    .updateTime(new Date())
+                    .build();
+            userMapper.insertSelective(userToSave);
+            return userToSave;
+        }
+
+        return user;
+
     }
 }

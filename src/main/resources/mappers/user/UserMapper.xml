@@ -19,10 +19,42 @@
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from `user`
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectOne" parameterType="com.tsien.usercenter.domain.model.user.User"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user
+    <where>
+      <if test="id != null and id != ''">
+        id = #{id,jdbcType=INTEGER}
+      </if>
+        <if test="wxId != null and wxId != ''">
+        AND id = #{wxId,jdbcType=VARCHAR}
+      </if>
+        <if test="wxNickname != null and wxNickname != ''">
+        AND id = #{wxNickname,jdbcType=VARCHAR}
+      </if>
+        <if test="roles != null and roles != ''">
+        AND id = #{roles,jdbcType=VARCHAR}
+      </if>
+        <if test="avatarUrl != null and avatarUrl != ''">
+        AND id = #{avatarUrl,jdbcType=VARCHAR}
+      </if>
+        <if test="createTime != null and createTime != ''">
+        AND id = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+        <if test="updateTime != null and updateTime != ''">
+            AND id = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="bonus != null and bonus != ''">
+        AND id = #{bonus,jdbcType=INTEGER}
+      </if>
+    </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
@@ -31,11 +63,11 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.tsien.usercenter.domain.model.user.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into `user` (wx_id, wx_nickname, roles, 
-      avatar_url, create_time, update_time, 
+    insert into `user` (wx_id, wx_nickname, roles,
+      avatar_url, create_time, update_time,
       bonus)
-    values (#{wxId,jdbcType=VARCHAR}, #{wxNickname,jdbcType=VARCHAR}, #{roles,jdbcType=VARCHAR}, 
-      #{avatarUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+    values (#{wxId,jdbcType=VARCHAR}, #{wxNickname,jdbcType=VARCHAR}, #{roles,jdbcType=VARCHAR},
+      #{avatarUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
       #{bonus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.tsien.usercenter.domain.model.user.User" useGeneratedKeys="true">

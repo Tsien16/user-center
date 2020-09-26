@@ -1,6 +1,7 @@
 package com.tsien.usercenter.service.user;
 
 import com.tsien.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
+import com.tsien.usercenter.domain.dto.user.UserLoginDTO;
 import com.tsien.usercenter.domain.model.user.User;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
  * @date 2020/7/19 0019 2:41
  */
 
-@Service
 public interface UserService {
 
     /**
@@ -29,4 +29,13 @@ public interface UserService {
      * @param message message
      */
     void addBonus(UserAddBonusMsgDTO message);
+
+    /**
+     * 用户登录
+     *
+     * @param loginDTO loginDTO
+     * @param openId   openId
+     * @return user
+     */
+    public User login(UserLoginDTO loginDTO, String openId);
 }

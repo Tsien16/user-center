@@ -44,6 +44,14 @@ public interface UserMapper {
     User selectByPrimaryKey(Integer id);
 
     /**
+     * 根据用户查找用户
+     *
+     * @param user user
+     * @return user
+     */
+    User selectOne(User user);
+
+    /**
      * update record selective
      *
      * @param record the updated record
