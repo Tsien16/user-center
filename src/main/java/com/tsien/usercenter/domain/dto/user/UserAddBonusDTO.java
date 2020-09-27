@@ -1,5 +1,6 @@
-package com.tsien.usercenter.domain.dto.messaging;
+package com.tsien.usercenter.domain.dto.user;
 
+import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,33 +11,23 @@ import lombok.NoArgsConstructor;
  *
  * @author tsien
  * @version 1.0.0
- * @date 2020/9/3 0003 1:41
+ * @date 2020/9/27 0027 15:21
  */
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class UserAddBonusMsgDTO {
-
+public class UserAddBonusDTO {
 
     /**
-     * 为谁加积分
+     * userId
      */
     private Integer userId;
 
     /**
-     * 加多少积分
+     * 积分
      */
     private Integer bonus;
 
-    /**
-     * 描述
-     */
-    private String description;
-
-    /**
-     * 事件
-     */
-    private String event;
 }

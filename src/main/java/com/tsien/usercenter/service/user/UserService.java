@@ -37,5 +37,5 @@ public interface UserService {
      * @param openId   openId
      * @return user
      */
-    public User login(UserLoginDTO loginDTO, String openId);
+    User login(UserLoginDTO loginDTO, String openId);
 }

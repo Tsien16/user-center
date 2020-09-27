@@ -56,9 +56,9 @@ public class UserServiceImpl implements UserService {
         bonusEventLogMapper.insert(BonusEventLog.builder()
                 .userId(userId)
                 .value(bonus)
-                .event("CONTRIBUTE")
+                .event(message.getEvent())
                 .createTime(new Date())
-                .description("投稿加积分")
+                .description(message.getDescription())
                 .build());
     }
 
